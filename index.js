@@ -75,7 +75,7 @@ ManifestRevisionPlugin.prototype.parsedAssets = function (data) {
         // Attempt to ignore chunked assets and other unimportant assets.
         if (isFile &&
             item.name.indexOf('~/') === -1 &&
-            item.reasons.length === 0 &&
+            (item.reasons.length === 0 || item.reasons[0].type === 'prefetch') &&
             item.hasOwnProperty('assets') &&
             item.assets.length === 1) {
 
